@@ -1,0 +1,28 @@
+/* Estilos para la barra de navegación */
+
+nav {
+  position: relative;
+  z-index: 10; /* Asegura que la nav esté por encima de otros elementos */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background: #010937;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #1c31a5;
+}

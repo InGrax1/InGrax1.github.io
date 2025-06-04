@@ -1,0 +1,51 @@
+.slogan {
+    min-height: 50vh;
+    width: 100%;            /* Ocupa todo el ancho */
+    display: flex;
+    align-items: center;
+    gap: 5px;              /* Espacio entre el logo y el texto */
+    padding: 40px 10px;     /* Espaciado interior */
+    background: #1c31a5;
+    text-align: justify;
+  }
+  
+  .slogan-content {
+    display: flex;
+    width: 100%;            /* Ocupa el 100% del contenedor padre */
+    align-items: center;
+    gap: 100px;         /* Espacio entre logo y texto */
+    justify-content: space-between;  /* Separa el logo y el texto */
+    cursor: default;
+    max-width: 1200px; /* Ancho máximo para no estirar demasiado */
+    margin: 0 auto;    /* Centra el bloque en la pantalla */
+
+
+  }
+  
+  /* El párrafo ocupa el resto del espacio y se alinea a la derecha */
+  .slogan-content p {
+    flex: 1;
+    text-align: center;
+    font-size: 1.8rem;      /* Texto más grande */
+    line-height: 1.6;
+    color: white;
+    white-space: normal;
+    word-wrap: break-word;
+    margin: 0;              /* Evita centrado forzado */
+  }
+  
+  .slogan p {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .logo-container {
+    flex: 0 0 auto;         /* El logo mantiene su tamaño */
+                            /* El ancho dependerá de la imagen */
+  }
+  
+  .logo-container img {
+    max-width: 300px; /* Ajusta el tamaño del logo */
+    height: auto;
+  }

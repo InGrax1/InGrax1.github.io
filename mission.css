@@ -1,0 +1,56 @@
+/* ======== mission.css ======== */
+
+/* Estilos base para la sección “Misión” */
+.mission-section {
+  background: linear-gradient(135deg, #1A3175 0%, #22439F 100%);
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.mission-container {
+  max-width: 90%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.mission-container h2 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 5rem;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.mission-container p {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 1.7rem;
+  line-height: 1.6;
+  color: #e2e8f0;
+  margin: 0 auto;
+}
+
+/* ===== Efecto Random: estado inicial =====
+   Cada carácter se posicionará en una coordenada aleatoria (entre -100% y +100%)
+   en X e Y. Luego, al aparecer data-visible="true", todos regresan a (0,0). */
+
+/* Asegurarse de que cada char sea inline-block para que transform y transición funcionen */
+.text--random .char {
+  display: inline-block;
+  /* Definimos la duración de la transición a 1 segundo; 
+     ajústala a 1.5s o 2s si quieres más lento */
+  transition: transform 2s ease, opacity 2s ease;
+  opacity: 0; /* Arrancan invisibles; el JS les pondrá opacidad 1 al asignar posiciones */
+}
+
+/* Cuando Splitting añade <span class="char" data-char-index="…">,
+   nuestro JS asignará un transform aleatorio inline al estilo de cada char. */
+
+/* ===== Cuando data-visible="true", animar a posición natural ===== */
+.text--random[data-visible="true"] .char {
+  /* Al asignar data-visible="true", removemos cualquier transform inline y ponemos (0,0) */
+  transform: translate(0, 0) !important;
+  opacity: 1 !important;
+}
