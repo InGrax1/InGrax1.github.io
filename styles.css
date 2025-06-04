@@ -34,7 +34,7 @@
   header {
     position: relative;
     height: 94vh; /* Ajusta la altura según necesites */
-    background: url("iMAGES/B1.jpg") center/cover no-repeat;
+    background: url("Images/B1.jpg") center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
