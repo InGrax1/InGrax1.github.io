@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Contenedor principal del slider */
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #020f59;
+}
+
+/* Contenedor de las diapositivas */
+.slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Cada diapositiva se posiciona absoluta para apilarse */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  z-index: 1;
+}
+
+/* La diapositiva activa tiene opacidad 1 */
+.slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* Overlay para dar contraste */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenedor de texto */
+.wrapper {
+  text-align: center;
+  color: #fff;
+}
+
+/* Título y párrafo del slider */
+.wrapper h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.wrapper p {
+  font-size: 1.2rem;
+  cursor: default;
+}
+
+/* Navegación de puntos */
+.menu-nav {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.nav-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.nav-dot.active {
+  background: #fff;
+}
+
+/* Flechas de navegación manual */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem; /* Tamaño del ícono */
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  width: 40px;   /* Ancho */
+  height: 300px;  /* Mayor altura para hacerla "más larga" verticalmente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px; /* Bordes redondeados suaves */
+  cursor: pointer;
+  z-index: 4;
+  transition: background 0.3s ease;
+}
+
+/* Ubicación de cada flecha */
+.arrow.left {
+  left: 20px;
+}
+
+.arrow.right {
+  right: 20px;
+}
+
+/* Animación de pulso al hacer hover en la flecha */
+@keyframes pulse {
+  0% {
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    transform: translateY(-50%) scale(1.1);
+  }
+  100% {
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+.arrow:hover {
+  animation: pulse 1s infinite;
+  background: rgba(0, 0, 0, 0.7); /* Se oscurece un poco al hover */
+}
+
+
+/* Estilos para el título con tooltip */
+.wrapper h1 {
+  position: relative;
+  cursor: pointer; /* Indica que es interactivo */
+}
+
+/* Tooltip oculto inicialmente */
+.wrapper h1 .tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  bottom: -120%;  /* Ajusta el offset según prefieras */
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* Evita que interfiera el hover */
+}
+
+/* Muestra el tooltip cuando se hace hover en el título */
+.wrapper h1:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}

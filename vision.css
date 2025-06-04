@@ -1,0 +1,83 @@
+/* ======== vision.css (versión más lenta) ======== */
+
+/* Estilo base para la sección “Visión” */
+.vision-section {
+  background: linear-gradient(135deg, #1A3175 0%, #22439F 100%);
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.vision-container {
+  max-width: 90%;
+  text-align: center;
+  margin: 0 auto; 
+}
+
+.vision-container h2 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 5rem;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.vision-container p {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 1.7rem;
+  line-height: 1.6;
+  color: #ffffff;
+  margin: 0 auto;
+}
+
+/* ===== Estado inicial: cada letra “fuera” ===== */
+.text--swapsies .char {
+  display: inline-block;
+  /* Ahora retrasamos 0.1s por cada índice para que sea más pausado */
+  animation-delay: calc(var(--char-index) * 0.1s);
+}
+
+.text--swapsies .char:nth-of-type(odd) {
+  transform: translateX(100%);
+}
+
+.text--swapsies .char:nth-of-type(even) {
+  transform: translateX(-100%);
+}
+
+/* ===== Cuando data-visible="true", disparar animaciones Swap ===== */
+/* Duración de animación ahora = 1s */
+.text--swapsies[data-visible="true"] .char:nth-of-type(odd) {
+  animation: swap-left 2s forwards;
+}
+
+.text--swapsies[data-visible="true"] .char:nth-of-type(even) {
+  animation: swap-right 2.5s forwards;
+}
+
+/* ===== Keyframes para las dos variantes de swap (1s cada uno) ===== */
+@keyframes swap-right {
+  25% {
+    transform: translateX(-100%) translateY(-100%);
+  }
+  75% {
+    transform: translateX(0) translateY(-100%);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+@keyframes swap-left {
+  25% {
+    transform: translateX(100%) translateY(100%);
+  }
+  75% {
+    transform: translateX(0) translateY(100%);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
